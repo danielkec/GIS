@@ -22,24 +22,36 @@
  * THE SOFTWARE.
  */
 
-package cz.gastro.gis;
+package cz.gastro.gis.images;
 
-import javax.swing.SwingUtilities;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.HashMap;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
- * Main runner of the GIS app
+ * Managing all images and cashing them in memory
  * @author Daniel Kec <daniel at kecovi.cz>
- * @since 12:26:09 7.10.2014
+ * @since 14:00:30 7.10.2014
  */
-public class Main {
-    public static void main(String[] args) {
-        AppInitializer.init();
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                
-            }
-        });
+public final class ImageManager {
+    private static final HashMap<String,ImageIcon> IMAGE_CACHE = new HashMap<>();
+    
+    
+    private static final String ICON_FAVICON = "favicon.png";
+        
+    public static ImageIcon getFavicon() throws IOException{
+        return loadIcon(ICON_FAVICON);
     }
+    
+    private static ImageIcon loadIcon(String name) throws IOException{
+        ImageIcon cachedIcon = ImageManager.IMAGE_CACHE.get(name);
+        if(cachedIcon==null){
+            BufferedImage bi = ImageIO.read(ImageManager.class.getResourceAsStream("favicon.png"));
+            ImageManager.IMAGE_CACHE.put(name, new ImageIcon(bi));
+        }       
+        return ImageManager.IMAGE_CACHE.get(name);
+    }
+
 }

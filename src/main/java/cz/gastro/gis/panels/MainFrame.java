@@ -22,24 +22,30 @@
  * THE SOFTWARE.
  */
 
-package cz.gastro.gis;
+package cz.gastro.gis.panels;
 
-import javax.swing.SwingUtilities;
+import cz.gastro.gis.images.ImageManager;
+import javax.swing.JFrame;
 
 /**
- * Main runner of the GIS app
+ *
  * @author Daniel Kec <daniel at kecovi.cz>
- * @since 12:26:09 7.10.2014
+ * @since 13:55:23 7.10.2014
  */
-public class Main {
-    public static void main(String[] args) {
-        AppInitializer.init();
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                
-            }
-        });
+public class MainFrame extends JFrame{
+    private static MainFrame mainFrame;
+    public static MainFrame getInstance(){
+        if(MainFrame.mainFrame==null){
+            try{
+                MainFrame.mainFrame = new MainFrame();
+            }catch(Exception e){
+                throw new RuntimeException(e);
+            }    
+        }
+        return MainFrame.mainFrame;
+    }
+    private MainFrame() throws Exception{
+        super("GIS");
+        this.setIconImage(ImageManager.getFavicon().getImage());
     }
 }
