@@ -24,6 +24,8 @@
 
 package cz.gastro.gis;
 
+import cz.gastro.gis.utils.ManifestUtils;
+
 /**
  * Static method init is the first thing being started
  * @author Daniel Kec <daniel at kecovi.cz>
@@ -32,6 +34,6 @@ package cz.gastro.gis;
 public final class AppInitializer {
     private AppInitializer(){};
     public static void init(){
-        
+        ManifestUtils.init();
     }
 }
