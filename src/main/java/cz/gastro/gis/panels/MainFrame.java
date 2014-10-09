@@ -30,6 +30,7 @@ import javax.swing.JFrame;
 
 /**
  *
+ * 
  * @author Daniel Kec <daniel at kecovi.cz>
  * @since 13:55:23 7.10.2014
  */
