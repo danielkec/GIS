@@ -25,6 +25,7 @@
 package cz.gastro.gis.panels;
 
 import cz.gastro.gis.images.ImageManager;
+import java.awt.Dimension;
 import javax.swing.JFrame;
 
 /**
@@ -46,6 +47,10 @@ public class MainFrame extends JFrame{
     }
     private MainFrame() throws Exception{
         super("GIS");
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setIconImage(ImageManager.getFavicon().getImage());
+        this.setPreferredSize(new Dimension(500,300));
+        this.pack();
+        this.setVisible(true);
     }
 }

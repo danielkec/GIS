@@ -24,6 +24,7 @@
 
 package cz.gastro.gis;
 
+import cz.gastro.gis.panels.MainFrame;
 import javax.swing.SwingUtilities;
 
 /**
@@ -38,7 +39,7 @@ public class Main {
 
             @Override
             public void run() {
-                
+                MainFrame mainFrame = MainFrame.getInstance();
             }
         });
     }
