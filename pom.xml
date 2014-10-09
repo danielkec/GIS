@@ -12,6 +12,50 @@
         </developer>    
     </developers>
     
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>           
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <mainClass>cz.gastro.gis.Main</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <Built-By>Daniel Kec</Built-By>
+                            <Time>${maven.build.timestamp}</Time>
+                        </manifestEntries>                        
+                    </archive>
+                </configuration>
+            </plugin>         
+        </plugins>
+    </build>
+    
+<!--    <archive>
+        <manifest>
+            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+        </manifest>
+        <manifestEntries>
+            <Built-By>Daniel Kec</Built-By>
+            <Time>${maven.build.timestamp}</Time>
+        </manifestEntries>
+                         
+    </archive>-->
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

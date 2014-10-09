@@ -22,40 +22,21 @@
  * THE SOFTWARE.
  */
 
-package cz.gastro.gis.images;
+package cz.gastro.gis.menu;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.HashMap;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+import javax.swing.JMenuBar;
 
 /**
- * Managing all images and cashing them in memory
+ *
  * @author Daniel Kec <daniel at kecovi.cz>
- * @since 14:00:30 7.10.2014
+ * @since 9.10.2014
  */
-public final class ImageManager {
-    private static final HashMap<String,ImageIcon> IMAGE_CACHE = new HashMap<>();
-    
-    
-    private static final String ICON_FAVICON = "favicon.png";
-        
-    public static ImageIcon getFavicon(){
-        try{
-            return loadIcon(ICON_FAVICON);
-        }catch(IOException e){
-            throw new RuntimeException("Error when loading favicon",e);
-        }
-    }
-    
-    private static ImageIcon loadIcon(String name) throws IOException{
-        ImageIcon cachedIcon = ImageManager.IMAGE_CACHE.get(name);
-        if(cachedIcon==null){
-            BufferedImage bi = ImageIO.read(ImageManager.class.getResourceAsStream("favicon.png"));
-            ImageManager.IMAGE_CACHE.put(name, new ImageIcon(bi));
-        }       
-        return ImageManager.IMAGE_CACHE.get(name);
-    }
+public class MainMenuBar extends JMenuBar{
 
+    public MainMenuBar() {
+        super(); 
+        this.add(new HelpMenu());
+    }
+    
+    
 }

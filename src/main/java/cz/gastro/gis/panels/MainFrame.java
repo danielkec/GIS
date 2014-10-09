@@ -25,7 +25,9 @@
 package cz.gastro.gis.panels;
 
 import cz.gastro.gis.images.ImageManager;
+import cz.gastro.gis.menu.MainMenuBar;
 import java.awt.Dimension;
+import java.awt.MenuBar;
 import javax.swing.JFrame;
 
 /**
@@ -50,6 +52,7 @@ public class MainFrame extends JFrame{
         super("GIS");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setIconImage(ImageManager.getFavicon().getImage());
+        this.setJMenuBar(new MainMenuBar());
         this.setPreferredSize(new Dimension(500,300));
         this.pack();
         this.setVisible(true);
