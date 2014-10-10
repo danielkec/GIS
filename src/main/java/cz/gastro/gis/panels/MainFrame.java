@@ -26,8 +26,8 @@ package cz.gastro.gis.panels;
 
 import cz.gastro.gis.images.ImageManager;
 import cz.gastro.gis.menu.MainMenuBar;
-import java.awt.Dimension;
-import java.awt.MenuBar;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import javax.swing.JFrame;
 
 /**
@@ -37,6 +37,7 @@ import javax.swing.JFrame;
  * @since 13:55:23 7.10.2014
  */
 public class MainFrame extends JFrame{
+    private GraphicsDevice myDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     private static MainFrame mainFrame;
     public static MainFrame getInstance(){
         if(MainFrame.mainFrame==null){
@@ -50,11 +51,13 @@ public class MainFrame extends JFrame{
     }
     private MainFrame() throws Exception{
         super("GIS");
+        this.setUndecorated(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setIconImage(ImageManager.getFavicon().getImage());
         this.setJMenuBar(new MainMenuBar());
-        this.setPreferredSize(new Dimension(500,300));
-        this.pack();
+        //this.setPreferredSize(new Dimension(500,300));
+        myDevice.setFullScreenWindow(this);
+        
         this.setVisible(true);
     }
 }

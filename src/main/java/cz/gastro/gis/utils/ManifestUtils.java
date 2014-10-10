@@ -61,12 +61,15 @@ public class ManifestUtils {
         }
     }
     public static String getVersion() {
+        if(ManifestUtils._manifest==null)return "DEFAULT";
         return ManifestUtils._manifest.getMainAttributes().get("Implementation-Version")+"";        
     }
     public static String getAuthor() {
+        if(ManifestUtils._manifest==null)return "DEFAULT";
         return ManifestUtils._manifest.getMainAttributes().get("Built-By")+"";        
     }
     public static String getBuildDate() {
+        if(ManifestUtils._manifest==null)return "DEFAULT";
         return ManifestUtils._manifest.getMainAttributes().get("Time")+"";        
     }
     

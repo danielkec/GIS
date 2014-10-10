@@ -53,7 +53,7 @@ public class HelpMenu extends JMenu{
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(MainFrame.getInstance(), new AboutProgramPanel(MainFrame.getInstance()));
+                    JOptionPane.showMessageDialog(MainFrame.getInstance().getRootPane(), new AboutProgramPanel(MainFrame.getInstance().getRootPane()));
                 }
             });
         }
