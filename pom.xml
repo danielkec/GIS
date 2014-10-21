@@ -56,7 +56,24 @@
         </manifestEntries>
                          
     </archive>-->
-    
+    <dependencies>
+        <dependency>
+            <groupId>org.icepdf</groupId>
+            <artifactId>icepdf-core</artifactId>
+            <version>5.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.icepdf</groupId>
+            <artifactId>icepdf-viewer</artifactId>
+            <version>5.0.7</version>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>icesoft.org</id>
+            <url>http://anonsvn.icesoft.org/repo/maven2/releases/</url>
+        </repository>
+    </repositories>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
